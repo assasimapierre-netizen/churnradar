@@ -62,7 +62,7 @@ SELECT
     COUNT(DISTINCT s.session_id)                                                              AS nb_sessions,
     COALESCE(ROUND(AVG(s.duree_sec), 0), 0)                                                  AS duree_session_moyenne,
     MAX(s.date_session)                                                                       AS derniere_session,
-    CAST(JULIANDAY('2026-05-28') - JULIANDAY(
+    CAST(JULIANDAY('now') - JULIANDAY(
         COALESCE(MAX(s.date_session), c.date_inscription)
     ) AS INTEGER)                                                                             AS jours_inactif
 FROM clients c
