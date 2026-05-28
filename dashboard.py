@@ -225,7 +225,7 @@ def main() -> None:
             pull=[0.04] * 4,
         )
         fig_pie.update_layout(showlegend=False, margin=dict(t=10, b=10, l=0, r=0))
-        st.plotly_chart(fig_pie, use_container_width=True)
+        st.plotly_chart(fig_pie, width="stretch")
 
     with col_scatter:
         st.subheader("Score churn vs Jours d'inactivité")
@@ -263,7 +263,7 @@ def main() -> None:
             margin=dict(t=10, b=0),
             plot_bgcolor="white",
         )
-        st.plotly_chart(fig_scat, use_container_width=True)
+        st.plotly_chart(fig_scat, width="stretch")
 
     st.divider()
 
@@ -295,7 +295,7 @@ def main() -> None:
             yaxis=dict(showgrid=True, gridcolor="#f0f0f0"),
             margin=dict(t=10, b=0),
         )
-        st.plotly_chart(fig_ca, use_container_width=True)
+        st.plotly_chart(fig_ca, width="stretch")
     else:
         st.info("Aucune commande livrée pour la sélection actuelle.")
 
@@ -332,7 +332,7 @@ def main() -> None:
         .hide(axis="index")
     )
 
-    st.dataframe(styler, use_container_width=True, height=460)
+    st.dataframe(styler, width="stretch", height=460)
 
     # ── Export CSV ────────────────────────────────────────────────────────────
     COLS_CSV = [
@@ -349,7 +349,7 @@ def main() -> None:
         data=csv_bytes,
         file_name=filename,
         mime="text/csv",
-        use_container_width=False,
+        width="content",
     )
 
 
